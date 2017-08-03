@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class StartUp
 {
+    private static Card biggest;
+    private static string winner;
     static void Main()
     {
-
+        //Game();
+        //PrintDeck();
         //PrintAttribute();
         //CompareCards();
         //PrintCardInfo();
@@ -84,5 +88,92 @@ public class StartUp
     {
         var attribute = type.GetCustomAttributes(false);
         Console.WriteLine(attribute[0]);
+    }
+    //Problem #7
+    public static void PrintDeck()
+    {
+        var input = Console.ReadLine();
+        var deck = GenerateDeck();
+        foreach (var card in deck)
+        {
+            Console.WriteLine(card.Name);
+        }
+        //Array cardRank = Enum.GetValues(typeof(Rank));
+        //Array cardSuits = Enum.GetValues(typeof(Suit));
+
+        //foreach (var suit in cardSuits)
+        //{
+        //    foreach (var rank in cardRank)
+        //    {
+        //        Console.WriteLine($"{rank} of {suit}");
+        //    }
+        //}
+    }
+
+    public static List<Card> GenerateDeck()
+    {
+        List<Card> deck = new List<Card>();
+
+        foreach (var suit in Enum.GetNames(typeof(Suit)))
+        {
+            foreach (var rank in Enum.GetNames(typeof(Rank)))
+            {
+                deck.Add(new Card(rank, suit));
+            }
+        }
+        return deck;
+    }
+    //Problem #8
+    public static void Game()
+    {
+        var firstPlayer = Console.ReadLine();
+        var secondPlayer = Console.ReadLine();
+
+        List<Card> deck = GenerateDeck();
+        List<Card> firstDeck = new List<Card>();
+        List<Card> secondDeck = new List<Card>();
+
+        while (firstDeck.Count < 5 || secondDeck.Count < 5 )
+        {
+            var input = Console.ReadLine().Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+
+            try
+            {
+                var card = new Card(input[0], input[input.Length - 1]);
+                if (deck.Contains(card))
+                {
+                    deck.Remove(card);
+                    if (firstDeck.Count < 5)
+                    {
+                        firstDeck.Add(card);
+                        WinnerCheck(card, firstPlayer);
+                    }
+                    else
+                    {
+                        secondDeck.Add(card);
+                        WinnerCheck(card, secondPlayer);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Card is not in the deck.");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("No such card exists.");
+
+            }
+        }
+        Console.WriteLine($"{winner} wins with {biggest.Name}.");
+    }
+
+    public static void WinnerCheck(Card card, string player)
+    {
+        if (card.CompareTo(biggest) > 0)
+        {
+            biggest = card;
+            winner = player;
+        }   
     }
 }

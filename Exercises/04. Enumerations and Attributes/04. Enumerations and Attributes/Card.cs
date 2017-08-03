@@ -29,8 +29,18 @@ public class Card : IComparable<Card>
     {
         if (ReferenceEquals(this, other)) return 0;
         if (ReferenceEquals(null, other)) return 1;
-        var rankComparison = Rank.CompareTo(other.Rank);
+        var rankComparison = Suit.CompareTo(other.Suit);
         if (rankComparison != 0) return rankComparison;
-        return Suit.CompareTo(other.Suit);
+        return Rank.CompareTo(other.Rank);
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null)
+        {
+            return false;
+        }
+        Card card = obj as Card;
+        return this.Power.Equals(card.Power);
     }
 }
