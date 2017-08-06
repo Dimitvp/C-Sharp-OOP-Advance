@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Stealer", "05. Reflection\01. Stealer.csproj", "{235C35FA-513D-4DAD-AB57-FBB868D42CD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. High Quality Mistakes", "02. High Quality Mistakes\02. High Quality Mistakes.csproj", "{37C3EDD8-AE1D-4C9C-8848-EB6A5DA2C467}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{235C35FA-513D-4DAD-AB57-FBB868D42CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{235C35FA-513D-4DAD-AB57-FBB868D42CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{235C35FA-513D-4DAD-AB57-FBB868D42CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{235C35FA-513D-4DAD-AB57-FBB868D42CD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37C3EDD8-AE1D-4C9C-8848-EB6A5DA2C467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C3EDD8-AE1D-4C9C-8848-EB6A5DA2C467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C3EDD8-AE1D-4C9C-8848-EB6A5DA2C467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C3EDD8-AE1D-4C9C-8848-EB6A5DA2C467}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
